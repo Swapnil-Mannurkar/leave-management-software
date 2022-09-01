@@ -1,11 +1,14 @@
 <?php
 include('top.inc.php');
+
+#TO DELETE AN LEAVE FROM LEAVE TABLE
 if (isset($_GET['type']) && $_GET['type'] == 'delete' && isset($_GET['id'])) {
     $id = mysqli_real_escape_string($con, $_GET['id']);
     mysqli_query($con, "delete from leave_applied where LID = '$id'");
     header('location:leave.php');
     die();
 }
+
 
 $res = mysqli_query($con, "select * from leave_applied");
 ?>
